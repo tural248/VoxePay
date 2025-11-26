@@ -410,7 +410,7 @@ body{
             <img src="https://i.postimg.cc/gjtCGQLj/BLOG-USDT-on-TON.jpg" alt="USDT on TON Logo" class="method-logo">
             <div class="method-info">
                 <span class="method-text">USDT (TON Network)</span>
-                <span class="method-subtext">Minimum $3.00</span>
+                <span class="method-subtext">Minimum $1.50</span>
             </div>
         </div>
     </div>
@@ -419,7 +419,7 @@ body{
         <button id="backBtn">⬅ Back to Methods</button>
         <h3 style="margin-bottom: 15px; color: var(--primary-color); text-align: center;">USDT (TON) Withdrawal</h3>
         <input id="details" placeholder="Enter your TON address">
-        <input id="amount" type="number" placeholder="Amount (USD) - Min $3.00">
+        <input id="amount" type="number" placeholder="Amount (USD) - Min $1.50">
         <button id="withdrawBtn">Withdraw</button>
         <div id="alert" class="alert"></div>
     </div>
@@ -438,7 +438,8 @@ body{
 const AD_REWARD = 0.001; // $
 const DAILY_AD_LIMIT = 100;
 const TASK_REWARD = 0.10; // $
-const MIN_WITHDRAWAL = 3.00; // $
+// ⭐️ DƏYİŞİKLİK: Minimum çıxarış $1.50 olaraq yeniləndi
+const MIN_WITHDRAWAL = 1.50; // $
 const TG_CHANNEL_LINK = "https://t.me/voxepay";
 const AD_WATCH_TIME = 10; // Seconds
 const REWARD_TIME = AD_WATCH_TIME - 2; // Mükafat 2 saniye sonra verilir (s=8)
@@ -682,6 +683,7 @@ withdrawBtn.onclick = () => {
   alertBox.style.display='none';
 
   if(!det){ showErr('Please enter your TON address.'); return; }
+  // DƏYİŞİKLİK: Minimum $1.50 olaraq yeniləndi
   if(isNaN(amt) || amt < MIN_WITHDRAWAL){ showErr(`Minimum withdrawal is $${MIN_WITHDRAWAL.toFixed(2)}.`); return; }
   
   if(amt > bal){ showErr(`Insufficient balance. Current: $${bal.toFixed(4)}`); return; }
